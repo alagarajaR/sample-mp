@@ -12,7 +12,14 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Switch>
-          <Route exact from="" render={(props) => <Dashboard {...props} />} />
+          <Route
+            exact
+            from="/"
+            render={(props) => {
+              console.log("Trying to Launch Dashboard");
+              <Dashboard {...props} />;
+            }}
+          />
           <Route
             exact
             from="/joblist"

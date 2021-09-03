@@ -6,6 +6,7 @@ import ViewListRoundedIcon from "@material-ui/icons/ViewListRounded";
 import GroupAddRoundedIcon from "@material-ui/icons/GroupAddRounded";
 
 function DrawerPage(props) {
+  console.log(props);
   const { history } = props;
   const itemList = [
     {
@@ -31,16 +32,16 @@ function DrawerPage(props) {
     {
       text: "New User",
       icon: <GroupAddRoundedIcon />,
-      //onClick : () =>  history.push("/")
+      onClick: () => history.push("/newuser"),
     },
   ];
 
   return (
     <List>
       {itemList.map((item, index) => {
-        const { text, icon } = item;
+        const { text, icon, onClick } = item;
         return (
-          <ListItem button key={text}>
+          <ListItem button key={text} onClick={onClick}>
             {icon && <ListItemIcon>{icon}</ListItemIcon>}
             <ListItemText primary={text} />
           </ListItem>

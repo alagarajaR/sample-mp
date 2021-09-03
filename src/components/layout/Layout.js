@@ -2,7 +2,7 @@ import MainNavigatonBar from "./MainNavigation";
 
 function Layout(props) {
     return <div>
-        <MainNavigatonBar/>
+        <MainNavigatonBar {...props}/>
         <main>
             {props.children}
         </main>

@@ -11,6 +11,7 @@ import {
   MenuItem,
   Drawer,
   Divider,
+  CssBaseline,
 } from "@material-ui/core";
 
 import MenuIcon from "@material-ui/icons/Menu";
@@ -23,16 +24,17 @@ import menuStyles from "../resources/styles";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import DrawerPage from "./DrawerPage";
+import { withRouter } from "react-router";
 
-export default function MainNavigatonBar() {
+function MainNavigatonBar(props) {
   const classes = menuStyles();
   const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -117,20 +119,28 @@ export default function MainNavigatonBar() {
   );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="static">
+    <div className={classes.root}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Flexson-Market Pace
+          <Typography variant="h6" noWrap>
+            Flexsol MarketPlace
           </Typography>
 
           <div className={classes.grow} />
@@ -156,6 +166,7 @@ export default function MainNavigatonBar() {
               <AccountCircle />
             </IconButton>
           </div>
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -196,10 +207,10 @@ export default function MainNavigatonBar() {
           </IconButton>
         </div>
         <Divider />
-        <DrawerPage />
+        <DrawerPage {...props} />
       </Drawer>
     </div>
   );
 }
 
-export { MainNavigatonBar };
+export default withRouter(MainNavigatonBar);

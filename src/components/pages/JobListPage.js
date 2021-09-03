@@ -1,6 +1,6 @@
 function JobListPage(props) {
     return <div>
-        Job List Page
+        <h1>Job List Page</h1>
     </div>
 }
 
