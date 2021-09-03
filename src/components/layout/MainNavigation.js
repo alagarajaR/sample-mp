@@ -122,7 +122,7 @@ function MainNavigatonBar(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position="sticky"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}

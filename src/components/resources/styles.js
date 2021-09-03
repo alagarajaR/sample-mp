@@ -43,6 +43,7 @@ const menuStyles = makeStyles((theme) => ({
       width: drawerWidth,
       flexShrink: 0,
       whiteSpace: 'nowrap',
+      variant : "persistent",
     },
     drawerOpen: {
       width: drawerWidth,
@@ -87,6 +88,16 @@ const menuStyles = makeStyles((theme) => ({
         display: 'none',
       },
     },
+
+    paper: {
+      marginTop: theme.spacing(5),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    }
+
+
+
   }));
 
   export default menuStyles;

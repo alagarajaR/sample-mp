@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./components/pages/Dashboard";
 import JobListPage from "./components/pages/JobListPage";
 import RoleAccessMatrixPage from "./components/pages/RoleAccessMatrixPage";
-import UserListPage from "./components/pages/UserList";
+import UserListPage from "./components/pages/UserListPage";
 import NewUserPage from "./components/pages/NewUserPage";
 
 function App() {
